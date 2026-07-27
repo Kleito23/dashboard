@@ -19,6 +19,7 @@ function App() {
     const selectedCity = CITY_OPTIONS[cityInput];
     const hourlyData = data?.hourly;
     const hourlyUnits = data?.hourly_units;
+    const indicatorStateLabel = loading ? 'Cargando...' : error ? 'Sin datos disponibles' : '';
 
     const temperature2mValue = hourlyData?.temperature_2m[0];
     const temperature2mUnit = hourlyUnits?.temperature_2m ?? '';
@@ -45,6 +46,14 @@ function App() {
     }).format(new Date(time)));
 
     const temperatureValues = (hourlyData?.temperature_2m ?? []).slice(0, 6);
+
+    const formatIndicatorValue = (value: number | undefined, unit: string, fractionDigits: number) => {
+        if (loading || error) {
+            return indicatorStateLabel;
+        }
+
+        return value !== undefined ? `${value.toFixed(fractionDigits)}${unit}` : 'Sin datos disponibles';
+    };
 
   return (
     <Grid container spacing={3} sx={{ justifyContent: 'left', alignItems: 'stretch', p: { xs: 2, md: 4 } }}>
@@ -80,28 +89,28 @@ function App() {
                  <Grid size={{ xs: 12, md: 3 }}>
                      <IndicatorUI
                          title='Temperatura (2m)'
-                         description={temperature2mValue !== undefined ? `${temperature2mValue}${temperature2mUnit}` : 'Cargando...'}
+                         description={formatIndicatorValue(temperature2mValue, temperature2mUnit, 1)}
                      />
                  </Grid>
 
                  <Grid size={{ xs: 12, md: 3 }}>
                      <IndicatorUI
                          title='Temperatura aparente'
-                         description={apparentTemperatureValue !== undefined ? `${apparentTemperatureValue}${apparentTemperatureUnit}` : 'Cargando...'}
+                         description={formatIndicatorValue(apparentTemperatureValue, apparentTemperatureUnit, 1)}
                      />
                  </Grid>
 
                  <Grid size={{ xs: 12, md: 3 }}>
                      <IndicatorUI
                          title='Velocidad del viento'
-                         description={windSpeedValue !== undefined ? `${windSpeedValue}${windSpeedUnit}` : 'Cargando...'}
+                         description={formatIndicatorValue(windSpeedValue, windSpeedUnit, 1)}
                      />
                  </Grid>
 
                  <Grid size={{ xs: 12, md: 3 }}>
                      <IndicatorUI
                          title='Humedad relativa'
-                         description={humidityValue !== undefined ? `${humidityValue}${humidityUnit}` : 'Cargando...'}
+                         description={formatIndicatorValue(humidityValue, humidityUnit, 0)}
                      />
                  </Grid>
 
