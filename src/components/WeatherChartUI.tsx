@@ -14,7 +14,7 @@ export default function WeatherChartUI({ title, labels, values, unit }: WeatherC
     return (
       <Card sx={{ height: '100%' }}>
         <CardContent>
-          <Typography variant="h6" component="h2" sx={{ mb: 1.5, fontWeight: 700 }}>
+          <Typography variant="h6" component="h2" sx={{ mb: 1.5, fontWeight: 700, color: 'text.primary' }}>
             {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -44,7 +44,7 @@ export default function WeatherChartUI({ title, labels, values, unit }: WeatherC
   return (
     <Card sx={{ height: '100%' }}>
       <CardContent>
-        <Typography variant="h6" component="h2" sx={{ mb: 1.5, fontWeight: 700 }}>
+        <Typography variant="h6" component="h2" sx={{ mb: 1.5, fontWeight: 700, color: 'text.primary' }}>
           {title}
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>

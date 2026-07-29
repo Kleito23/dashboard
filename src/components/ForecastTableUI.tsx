@@ -23,7 +23,7 @@ export default function ForecastTableUI({ title, rows }: ForecastTableUIProps) {
   if (rows.length === 0) {
     return (
       <Paper sx={{ p: 2.5, height: '100%' }} elevation={0}>
-        <Typography variant="h6" component="h2" sx={{ mb: 2, fontWeight: 700 }}>
+        <Typography variant="h6" component="h2" sx={{ mb: 2, fontWeight: 700, color: 'text.primary' }}>
           {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -35,7 +35,7 @@ export default function ForecastTableUI({ title, rows }: ForecastTableUIProps) {
 
   return (
     <Paper sx={{ p: 2.5, height: '100%' }} elevation={0}>
-      <Typography variant="h6" component="h2" sx={{ mb: 2, fontWeight: 700 }}>
+      <Typography variant="h6" component="h2" sx={{ mb: 2, fontWeight: 700, color: 'text.primary' }}>
         {title}
       </Typography>
       <TableContainer>

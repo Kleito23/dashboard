@@ -135,7 +135,7 @@ function App() {
          <Grid size={{ xs: 12 }}>
              <Card>
                  <CardContent>
-                     <Typography variant="h6" component="h2" sx={{ fontWeight: 700, mb: 1 }}>
+                     <Typography variant="h6" component="h2" sx={{ fontWeight: 700, mb: 1, color: 'text.primary' }}>
                          Información adicional
                      </Typography>
                      <Typography variant="body2" color="text.secondary">

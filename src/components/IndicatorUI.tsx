@@ -11,7 +11,7 @@ import Card from '@mui/material/Card';
      return (
          <Card>
              <CardContent sx={{ height: '100%' }}>
-             <Typography variant="h5" component="div">
+             <Typography variant="h5" component="div" sx={{ color: 'text.primary', fontWeight: 700 }}>
                  {props.description}
              </Typography>
              <Typography variant="body2" component="p" color="text.secondary">
